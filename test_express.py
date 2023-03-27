@@ -1,11 +1,140 @@
-from calculate_express import calculate_express
+from function import calculate_express
+from function import validate_express
 import pytest
 #central,northern,northeastern,eastern,western,southern
 @pytest.mark.validate
-def test_weight_m1_zone_c_result__0():
+def test_weight_a_zone_c():
+    zone="central"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_a_zone_e():
+    zone="eastern"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_a_zone_w():
+    zone="western"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_a_zone_n():
+    zone="northern"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_a_zone_ne():
+    zone="northeastern"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_a_zone_s():
+    zone="southern"
+    weight = "a"
+    expected_result = "Please input weight with float or integer."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_x_zone_x():
+    zone="x"
+    weight = "x"
+    expected_result = "Please input weight as a float or integer, and zone is entered incorrectly."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_1():
+    zone=1
+    weight = -1
+    expected_result = "Impossible, the weight's out of range and Please input zone with string."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_2_zone_1():
+    zone=1
+    weight = 2
+    expected_result = "Please input zone with string."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_x():
+    zone="x"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range and zone is entered incorrectly."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_c():
     zone="central"
     weight = -1
-    expected_result = 0
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+  
+@pytest.mark.validate
+def test_weight_m1_zone_e():
+    zone="eastern"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_w():
+    zone="western"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_n():
+    zone="northern"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_ne():
+    zone="northeastern"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_zone_s():
+    zone="southern"
+    weight = -1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_zone_x():
+    zone="x"
+    weight = 1
+    expected_result = "Zone is entered incorrectly."
     actual_result = calculate_express(weight,zone)
     assert expected_result == actual_result
 
@@ -16,27 +145,11 @@ def test_weight_0_zone_c_result_0():
     expected_result = 0
     actual_result = calculate_express(weight,zone)
     assert expected_result == actual_result
-    
-@pytest.mark.validate
-def test_weight_m1_zone_e_result__0():
-    zone="eastern"
-    weight = -1
-    expected_result = 0
-    actual_result = calculate_express(weight,zone)
-    assert expected_result == actual_result
-
+  
 @pytest.mark.validate
 def test_weight_0_zone_e_result_0():
     zone="eastern"
     weight = 0
-    expected_result = 0
-    actual_result = calculate_express(weight,zone)
-    assert expected_result == actual_result
-
-@pytest.mark.validate
-def test_weight_m1_zone_w_result__0():
-    zone="western"
-    weight = -1
     expected_result = 0
     actual_result = calculate_express(weight,zone)
     assert expected_result == actual_result
@@ -50,14 +163,6 @@ def test_weight_0_zone_w_result_0():
     assert expected_result == actual_result
 
 @pytest.mark.validate
-def test_weight_m1_zone_n_result__0():
-    zone="northern"
-    weight = -1
-    expected_result = 0
-    actual_result = calculate_express(weight,zone)
-    assert expected_result == actual_result
-
-@pytest.mark.validate
 def test_weight_0_zone_n_result_0():
     zone="northern"
     weight = 0
@@ -66,25 +171,9 @@ def test_weight_0_zone_n_result_0():
     assert expected_result == actual_result
 
 @pytest.mark.validate
-def test_weight_m1_zone_ne_result__0():
-    zone="northeastern"
-    weight = -1
-    expected_result = 0
-    actual_result = calculate_express(weight,zone)
-    assert expected_result == actual_result
-
-@pytest.mark.validate
 def test_weight_0_zone_ne_result_0():
     zone="northeastern"
     weight = 0
-    expected_result = 0
-    actual_result = calculate_express(weight,zone)
-    assert expected_result == actual_result
-
-@pytest.mark.validate
-def test_weight_m1_zone_s_result__0():
-    zone="southern"
-    weight = -1
     expected_result = 0
     actual_result = calculate_express(weight,zone)
     assert expected_result == actual_result
@@ -335,5 +424,101 @@ def test_weight_9_zone_s_result_200():
     zone="southern"
     weight = 9
     expected_result = 240
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_c_result_200():
+    zone="central"
+    weight = 1.1
+    expected_result = 200
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_e_result_200():
+    zone="eastern"
+    weight = 1.1
+    expected_result = 200
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_w_result_200():
+    zone="western"
+    weight = 1.1
+    expected_result = 200
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_n_result_200():
+    zone="northern"
+    weight = 1.1
+    expected_result = 240
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_ne_result_200():
+    zone="northeastern"
+    weight = 1.1
+    expected_result = 240
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_1_1_zone_s_result_200():
+    zone="southern"
+    weight = 1.1
+    expected_result = 240
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_c_result_200():
+    zone="central"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_e_result_200():
+    zone="eastern"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_w_result_200():
+    zone="western"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_n_result_200():
+    zone="northern"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_ne_result_200():
+    zone="northeastern"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
+    actual_result = calculate_express(weight,zone)
+    assert expected_result == actual_result
+
+@pytest.mark.validate
+def test_weight_m1_1_zone_s_result_200():
+    zone="southern"
+    weight = -1.1
+    expected_result = "Impossible, the weight's out of range."
     actual_result = calculate_express(weight,zone)
     assert expected_result == actual_result
